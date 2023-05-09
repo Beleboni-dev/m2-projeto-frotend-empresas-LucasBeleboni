@@ -1,3 +1,5 @@
+import { showToast } from "./toast.js"
+
 const endpoints = {
     categoriesReadAll: 'http://localhost:3333/categories/readAll',
     authLogin: 'http://localhost:3333/auth/login',
@@ -48,7 +50,7 @@ async function handleDismissEmployee(e, employeeID, employeeName, departmentID, 
     await modalDismissEmployee(employeeID, departmentID, companyName, employeeName)
 }
 function getAuthHeader() {
-    const authToken = localStorage.getItem("auth");
+    const authToken = localStorage.getItem("auth")
 
     if (authToken) {
         return { Authorization: `Bearer ${authToken}` }
@@ -72,21 +74,25 @@ async function departmentsCreate(newDepartment, companyID, companyName) {
         },
         body: JSON.stringify(newDepartment)
     })
-    if (!res.ok) {
-        throw new Error("Não foi possível criar o departamento")
-    } else {
+    if (res.ok) {
+        const modal = document.getElementById("new-department-modal")
+        modal.close()
+        modal.remove()
+        showToast("success-C-department")
         const data = await res.json()
-        alert("Departamento cadastrado com sucesso")
         const ulDepartments = document.getElementById("departments-list")
         ulDepartments.innerHTML = ""
         const select = document.getElementById("select-companies")
         select.value = companyID
         await renderDepartments(companyID, companyName)
-
+        return await data
+    } else {
         const modal = document.getElementById("new-department-modal")
         modal.close()
         modal.remove()
-        return await data
+        showToast("error-C-department")
+        throw new Error("Não foi possível criar o departamento")
+
     }
 }
 async function departmentsReadByCompany(companyID) {
@@ -104,23 +110,25 @@ async function departmentsDelete(employees, departmentID, companyID, companyName
         method: 'DELETE',
         headers: getAuthHeader(),
     })
-    if (!res.ok) {
+    if (res.ok) {
+        showToast("success-D")
+        const data = await res.json()
+        await dismissAllEmployees(employees)
+        alert("Departamento deletado com sucesso")
+        const modal = document.getElementById("delete-department-modal")
+        const ulDepartments = document.getElementById("departments-list")
+        ulDepartments.innerHTML = ""
+        const select = document.getElementById("select-companies")
+        select.value = companyID
+        await renderDepartments(companyID, companyName)
+        await renderEmployeeSection()
+        modal.close()
+        modal.remove()
+        return await data
+    } else {
+
         throw new Error("Não foi possível deletar, verifique o ID do departamento")
     }
-    const data = await res.json()
-    await dismissAllEmployees(employees)
-    alert("Departamento deletado com sucesso")
-    const modal = document.getElementById("delete-department-modal")
-    const ulDepartments = document.getElementById("departments-list")
-    ulDepartments.innerHTML = ""
-    const select = document.getElementById("select-companies")
-    select.value = companyID
-    await renderDepartments(companyID, companyName)
-    await renderEmployeeSection()
-    modal.close()
-    modal.remove()
-
-    return await data
 }
 async function departmentsUpdate(departmentID, newDescription, companyID, companyName) {
 
@@ -199,7 +207,6 @@ async function departmentsReadAll() {
 
     const res = await fetch(endpoints.departmentsReadAll, { headers: getAuthHeader() })
     const data = await res.json()
-    console.log(data)
     return data
 }
 async function employeesHireEmployee(employeeID, departmentID, companyName) {
@@ -218,7 +225,6 @@ async function employeesHireEmployee(employeeID, departmentID, companyName) {
         throw new Error("Não foi possível incluir o funcionário nesse departamento")
     }
     const data = await res.json()
-    alert("Funcionário contratado")
     const select = document.getElementById("select-employee")
     const option = select.querySelector(`[value = "${employeeID}"]`)
     option.remove()
@@ -368,13 +374,13 @@ export async function createNewDepartmentModal() {
     btn.classList.add("title1-inter-700", "button", "button-action-1")
     btn.id = "new-department-btn"
     btn.textContent = "Criar"
-    let empresaSelecionada = null
+    let selectedCompany = null
     select.addEventListener("change", () => {
         const selectedOption = select.options[select.selectedIndex]
-        empresaSelecionada = selectedOption.textContent
+        selectedCompany = selectedOption.textContent
     })
 
-    btn.addEventListener("click", (e) => handleInsertDepartments(e, empresaSelecionada))
+    btn.addEventListener("click", (e) => handleInsertDepartments(e, selectedCompany))
 
     form.appendChild(nameLabel)
     form.appendChild(nameInput)
@@ -399,40 +405,39 @@ export async function renderDepartments(companyID, companyName) {
     const emptyDisplay = document.getElementById('empty-display')
     const emptyText = document.getElementById("empty-text")
 
-    const departments = await departmentsReadByCompany(companyID)
-    if (departments.length > 0) {
-        ulContainer.classList.remove("hide")
-        emptyDisplay.style.display = "none"
-    } else {
-        ulContainer.classList.add("hide")
-        emptyDisplay.style.display = "flex"
-        emptyText.textContent = `A empresa ${companyName} não possuí departamentos`
-    }
+    let departments = companyID === undefined && companyName === undefined
+        ? await departmentsReadAll()
+        : await departmentsReadByCompany(companyID)
+
+    ulContainer.style.display = departments.length === 0 ? "none" : "block"
+    emptyDisplay.style.display = departments.length === 0 ? "flex" : "none"
+
+    emptyText.textContent = companyName === undefined
+        ? "Nenhum departamento encontrado"
+        : `A empresa ${companyName} não possuí departamentos`
+
     ulDepartments.innerHTML = ""
-
-
-    departments.forEach(department => {
+    for (const department of departments) {
+        const company = await companiesReadById(department.company_id)
 
         const li = document.createElement("li")
         li.classList.add("departments__item")
         li.id = department.id
+
         const divInfo = document.createElement("div")
         divInfo.classList.add("department__info-container")
 
         const h3 = document.createElement("h3")
-        h3.classList.add("department__name")
-        h3.classList.add("title2-inter-700")
+        h3.classList.add("department__name", "title2-inter-700")
         h3.textContent = department.name
 
         const p = document.createElement("p")
-        p.classList.add("department__description")
-        p.classList.add("text-4-inter")
+        p.classList.add("department__description", "text-4-inter")
         p.textContent = department.description
 
         const span = document.createElement("span")
-        span.classList.add("department__company-name")
-        span.classList.add("text-4-inter")
-        span.textContent = companyName
+        span.classList.add("department__company-name", "text-4-inter")
+        span.textContent = company.name
 
         divInfo.appendChild(h3)
         divInfo.appendChild(p)
@@ -442,24 +447,22 @@ export async function renderDepartments(companyID, companyName) {
         divIcons.classList.add("department_icons-container")
 
         const divRead = document.createElement("div")
-        divRead.classList.add("icon")
-        divRead.classList.add("department-read-icon")
+        divRead.classList.add("icon", "department-read-icon")
         divRead.addEventListener("click", () => {
-
-            createReadDepartmentModal(companyName, department.id, department.name, department.description)
+            createReadDepartmentModal(company.name, department.id, department.name, department.description)
         })
+
         const divEdit = document.createElement("div")
-        divEdit.classList.add("icon")
-        divEdit.classList.add("department-edit-icon")
+        divEdit.classList.add("icon", "department-edit-icon")
         divEdit.addEventListener("click", () => {
-            createEditDepartmentModal(department.id, department.description, companyID, companyName)
+            createEditDepartmentModal(department.id, department.description, company.id, company.name)
         })
-
 
         const divDelete = document.createElement("div")
-        divDelete.classList.add("icon")
-        divDelete.classList.add("department-delete-icon")
-        divDelete.addEventListener("click", () => createDeleteDepartmentModal(companyID, department.name, companyName, department.id))
+        divDelete.classList.add("icon", "department-delete-icon")
+        divDelete.addEventListener("click", () => {
+            createDeleteDepartmentModal(companyID, department.name, companyName, department.id)
+        })
 
         divIcons.appendChild(divRead)
         divIcons.appendChild(divEdit)
@@ -469,8 +472,9 @@ export async function renderDepartments(companyID, companyName) {
         li.appendChild(divIcons)
 
         ulDepartments.appendChild(li)
-    })
+    }
 }
+
 async function createDeleteDepartmentModal(companyID, departmentName, companyName, departmentId) {
 
     const modal = document.createElement("dialog")
@@ -765,8 +769,6 @@ function createEditDepartmentModal(departmentID, departmentDescription, companyI
     modal.showModal()
 
 }
-
-
 async function createEditEmployeeModal(employeeID, employeeName, employeeEmail) {
     const modal = document.createElement("dialog")
     modal.classList.add("modal-dash")

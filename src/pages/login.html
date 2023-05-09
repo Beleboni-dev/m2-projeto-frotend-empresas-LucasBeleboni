@@ -7,8 +7,14 @@
   <link rel="stylesheet" href="../styles/globalStyles.css">
   <link rel="stylesheet" href="../styles/login-register.css">
   <link rel="stylesheet" href="../styles/header.css">
-
+  <link rel="stylesheet" href="../styles/toast.css">
   <script type="module" src="../scripts/login.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+    integrity="sha512-g1ODVpSQ33+gzT84TUTjzNHpXZlq+h+D6vyZRca6kbjC6dRlt6+Q2AP7o8JgF2VXUE04n+vGGfV7xrv1JSgJrQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <title>Login</title>
 </head>
 
@@ -26,7 +32,7 @@
     </div>
   </header>
 
-  <main id="modal-login" class="modal">
+  <main id="main-login" class="modal">
     <h2 class="modal-title font-poppins-700">Login</h2>
     <span class="text1-regular">Preencha os campos para realizar login</span>
     <form class="modal-form">
@@ -34,14 +40,30 @@
       <input class="modal-input" type="email" name="email" id="input-email" placeholder="Seu e-mail" required>
       <label class="modal-label" for="input-password">senha</label>
       <input class="modal-input" type="password" name="password" id="input-password" placeholder="Sua senha">
-      <button class="button button-default modal-btn--primary" id="modal-login-btn">Login</button>
+      <button class="button button-default modal-btn--primary" id="main-login-btn">Login</button>
       <span class="text1-regular">ou</span>
       <button class="button button-default-outlined modal-btn--secondary to-register"
-        id="modal-register-btn">Cadastre-se</button>
+        id="main-register-btn">Cadastre-se</button>
     </form>
   </main>
+  <div id="toast-container">
+    <div id="success-toast" class="toast hide">
+      <div class="success-toast__title-container">
+        <i class="fa-solid fa-circle-check"></i>
+        <h2 class="font4-500">Usuário autenticado</h2>
+      </div>
+    </div>
 
-  <!-- Seu conteúdo aqui -->
+    <div id="error-toast" class="toast hide">
+      <div class="error-toast__title-container">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <h2 class="font4-500">Não foi possível fazer o login</h2>
+      </div>
+      <div class="error-toast__text-container">
+        <p class="font5-400">Verifique os campos digitados</p>
+      </div>
+    </div>
+  </div>
 
 </body>
 

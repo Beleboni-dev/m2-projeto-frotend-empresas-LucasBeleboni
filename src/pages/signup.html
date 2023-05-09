@@ -7,7 +7,13 @@
   <link rel="stylesheet" href="../styles/globalStyles.css">
   <link rel="stylesheet" href="../styles/login-register.css">
   <link rel="stylesheet" href="../styles/header.css">
-
+  <link rel="stylesheet" href="../styles/toast.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+    integrity="sha512-g1ODVpSQ33+gzT84TUTjzNHpXZlq+h+D6vyZRca6kbjC6dRlt6+Q2AP7o8JgF2VXUE04n+vGGfV7xrv1JSgJrQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module" src="../scripts/register.js" defer></script>
   <title>Registre-se</title>
 </head>
@@ -25,7 +31,7 @@
       </div>
     </div>
   </header>
-  <main id="modal-register" class="modal">
+  <main id="main-register" class="modal">
     <h2 class="modal-title font-poppins-700">Cadastre-se</h2>
     <form class="modal-form">
       <label for="name" class="modal-label">Nome</label>
@@ -34,12 +40,29 @@
       <input type="email" name="email" id="input-email" class="modal-input" placeholder="Seu e-mail" required>
       <label for="password" class="modal-label">Senha</label>
       <input type="password" name="password" id="input-password" class="modal-input" placeholder="Sua senha">
-      <button id="modal-register-btn" class="button button-default modal-btn--primary">Cadastrar</button>
+      <button id="main-register-btn" class="button button-default modal-btn--primary">Cadastrar</button>
       <button id="modal-return-btn"
         class="to-home__btn button button-default-outlined modal-btn--secondary">Retornar</button>
     </form>
   </main>
+  <div id="toast-container">
+    <div id="success-toast" class="toast hide">
+      <div class="success-toast__title-container">
+        <i class="fa-solid fa-circle-check"></i>
+        <h2 class="font4-500">Sua conta foi criada com sucesso!</h2>
+      </div>
+    </div>
 
+    <div id="error-toast" class="toast hide">
+      <div class="error-toast__title-container">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <h2 class="font4-500">Não foi possível criar o usuário</h2>
+      </div>
+      <div class="error-toast__text-container">
+        <p class="font5-400">Verifique os campos digitados</p>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

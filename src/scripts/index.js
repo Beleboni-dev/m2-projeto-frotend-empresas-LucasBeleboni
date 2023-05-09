@@ -47,7 +47,6 @@ async function getAllCategories() {
 
 }
 
-/* Renderiza os options no select inicial, seleciona a ul e renderiza primeiramente todas as companhias, depois renderiza conforme acontece change no select */
 async function categoryOptions() {
     renderCompanies()
     const categories = await getAllCategories()
@@ -96,163 +95,13 @@ async function renderCompanies(categoryName) {
     })
 }
 
-/* Renderiza os modais de login e cadastro quando chamados no modals.js que é onde estão todos eventos de chamada dos modais  */
-
 function initLogin() {
-    const button = document.getElementById("open-modal-login")
+    const button = document.getElementById("open-main-login")
     button.addEventListener("click", () => {
         window.location.href = "./src/pages/login.html"
     })
 }
-function renderRegisterModal() {
 
-    const modal = document.createElement('dialog')
-    const title = document.createElement('h2')
-    const form = document.createElement('form')
-    const nameLabel = document.createElement('label')
-    const nameInput = document.createElement('input')
-    const emailLabel = document.createElement('label')
-    const emailInput = document.createElement('input')
-    const passwordLabel = document.createElement('label')
-    const passwordInput = document.createElement('input')
-    const registerButton = document.createElement('button')
-    const returnButton = document.createElement('button')
-
-    modal.id = 'modal-register'
-    modal.classList.add('modal')
-    title.classList.add('modal-title', 'font-poppins-700')
-    title.textContent = 'Cadastre-se'
-    form.classList.add('modal-form')
-    nameLabel.setAttribute('for', 'name')
-    nameLabel.classList.add('modal-label')
-    nameLabel.textContent = 'Nome'
-    nameInput.type = 'text'
-    nameInput.name = 'name'
-    nameInput.id = 'input-name'
-    nameInput.classList.add('modal-input')
-    nameInput.placeholder = 'Seu nome'
-    nameInput.required = true
-    emailLabel.setAttribute('for', 'email')
-    emailLabel.classList.add('modal-label')
-    emailLabel.textContent = 'E-mail'
-    emailInput.type = 'email'
-    emailInput.name = 'email'
-    emailInput.id = 'input-email'
-    emailInput.classList.add('modal-input')
-    emailInput.placeholder = 'Seu e-mail'
-    emailInput.required = true
-    passwordLabel.setAttribute('for', 'password')
-    passwordLabel.classList.add('modal-label')
-    passwordLabel.textContent = 'Senha'
-    passwordInput.type = 'password'
-    passwordInput.name = 'password'
-    passwordInput.id = 'input-password'
-    passwordInput.classList.add('modal-input')
-    passwordInput.placeholder = 'Sua senha'
-    registerButton.classList.add('button', 'button-default', 'modal-btn--primary')
-    registerButton.id = 'modal-register-btn'
-    registerButton.textContent = 'Cadastrar'
-    registerButton.addEventListener("click", (e) => insertNewEmployee(e))
-    returnButton.classList.add('button', 'button-default-outlined', 'modal-btn--secondary')
-    returnButton.id = 'modal-return-btn'
-    returnButton.textContent = 'Retornar'
-    returnButton.addEventListener("click", () => {
-        modal.close()
-        modal.remove()
-    })
-    form.appendChild(nameLabel)
-    form.appendChild(nameInput)
-    form.appendChild(emailLabel)
-    form.appendChild(emailInput)
-    form.appendChild(passwordLabel)
-    form.appendChild(passwordInput)
-    form.appendChild(registerButton)
-    form.appendChild(returnButton)
-    modal.appendChild(title)
-    modal.appendChild(form)
-
-    document.body.appendChild(modal)
-    modal.showModal()
-}
-function renderLoginModal() {
-
-    const modal = document.createElement('dialog')
-    modal.id = 'modal-login'
-    modal.classList.add('modal')
-
-    const title = document.createElement('h2')
-    title.classList.add('modal-title', 'font-poppins-700')
-    title.textContent = 'Login'
-
-    const message = document.createElement('span')
-    message.classList.add('text1-regular')
-    message.textContent = 'Preencha os campos para realizar login'
-
-    const form = document.createElement('form')
-    form.classList.add('modal-form')
-
-    const emailLabel = document.createElement('label')
-    emailLabel.classList.add('modal-label')
-    emailLabel.setAttribute('for', 'input-email')
-    emailLabel.textContent = 'e-mail'
-
-    const emailInput = document.createElement('input')
-    emailInput.classList.add('modal-input')
-    emailInput.setAttribute('type', 'email')
-    emailInput.setAttribute('name', 'email')
-    emailInput.setAttribute('id', 'input-email')
-    emailInput.setAttribute('placeholder', 'Seu e-mail')
-    emailInput.required = true
-
-    const passwordLabel = document.createElement('label')
-    passwordLabel.classList.add('modal-label')
-    passwordLabel.setAttribute('for', 'input-password')
-    passwordLabel.textContent = 'senha'
-
-    const passwordInput = document.createElement('input')
-    passwordInput.classList.add('modal-input')
-    passwordInput.setAttribute('type', 'password')
-    passwordInput.setAttribute('name', 'password')
-    passwordInput.setAttribute('id', 'input-password')
-    passwordInput.setAttribute('placeholder', 'Sua senha')
-
-    const loginButton = document.createElement('button')
-    loginButton.classList.add('button', 'button-default', 'modal-btn--primary')
-    loginButton.setAttribute('id', 'modal-login-btn')
-    loginButton.textContent = 'Login'
-
-    const registerMessage = document.createElement('span')
-    registerMessage.classList.add('text1-regular')
-    registerMessage.textContent = 'ou'
-
-    const registerButton = document.createElement('button')
-    registerButton.classList.add('button', 'button-default-outlined', 'modal-btn--secondary')
-    registerButton.setAttribute('id', 'modal-register-btn')
-    registerButton.textContent = 'Cadastre-se'
-    registerButton.addEventListener("click", () => {
-        closeModal(modal)
-        renderRegisterModal()
-    })
-
-    form.appendChild(emailLabel)
-    form.appendChild(emailInput)
-    form.appendChild(passwordLabel)
-    form.appendChild(passwordInput)
-    form.appendChild(loginButton)
-    form.appendChild(registerMessage)
-    form.appendChild(registerButton)
-
-    modal.appendChild(title)
-    modal.appendChild(message)
-    modal.appendChild(form)
-
-
-    document.body.appendChild(modal)
-    modal.showModal()
-    toLogin()
-}
-
-/* Faz o login e salva na localStorage o token e validação de adm, na sequencia direciona o usuário pra rota respectiva */
 
 
 

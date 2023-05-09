@@ -3,6 +3,9 @@
 body {
     display: none;
 }
+#empty-display{
+    display: none;
+}
 
 .header__button-container button {
     font-family: 'Roboto', sans-serif;

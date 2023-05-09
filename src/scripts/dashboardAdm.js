@@ -19,6 +19,7 @@ if (logoutButton !== null) {
 }
 
 companiesOptions()
+renderDepartments()
 initDepartmentCreate()
 renderEmployeeSection()
 

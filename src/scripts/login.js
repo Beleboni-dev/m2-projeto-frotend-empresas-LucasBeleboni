@@ -1,3 +1,5 @@
+import { showToast } from "./toast.js"
+
 const endpoint = {
     authLogin: 'http://localhost:3333/auth/login'
 }
@@ -9,7 +11,6 @@ async function initAll() {
     toLogin()
     toRegister()
 }
-
 function toRegister() {
     const buttons = document.querySelectorAll(".to-register")
     buttons.forEach(button => {
@@ -31,25 +32,24 @@ async function authLogin(email, password) {
         email,
         password
     }
-    try {
-        const res = await fetch(endpoint.authLogin, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        })
-        if (!res.ok) {
-            throw new Error("Usuário ou senha invalido(s)")
-        }
 
-        const data = await res.json()
-        saveCredencial(data)
-        return data
-    }
-    catch (error) {
-        console.log(error)
-        throw new Error("Não foi possível fazer o login")
+    const res = await fetch(endpoint.authLogin, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    const data = await res.json()
+    showToast("success")
+    if (res.ok) {
+        setTimeout(() => {
+            saveCredencial(data)
+            return data
+        }, 1000)
+    } else {
+        showToast("error")
+        throw new Error("Usuário ou senha invalido(s)")
     }
 }
 async function saveCredencial(token) {
@@ -64,7 +64,7 @@ async function saveCredencial(token) {
     }
 }
 async function toLogin() {
-    const loginButton = document.getElementById("modal-login-btn")
+    const loginButton = document.getElementById("main-login-btn")
     loginButton.addEventListener("click", async (e) => {
         e.preventDefault()
         const email = document.getElementById("input-email").value

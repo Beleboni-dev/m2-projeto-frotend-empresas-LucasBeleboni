@@ -1,3 +1,5 @@
+import { showToast } from "./toast.js"
+
 goToLogin()
 toHome()
 function goToLogin() {
@@ -17,7 +19,7 @@ function toHome() {
 initRegister()
 
 async function initRegister() {
-    const button = document.getElementById("modal-register-btn")
+    const button = document.getElementById("main-register-btn")
     button.addEventListener("click", async (e) => {
         e.preventDefault()
         await insertNewEmployee()
@@ -44,8 +46,6 @@ async function employeesCreate(name, email, password) {
         email,
         password
     }
-    console.log(body)
-    try {
 
         const res = await fetch("http://localhost:3333/employees/create", {
             method: "POST",
@@ -56,14 +56,16 @@ async function employeesCreate(name, email, password) {
         })
 
         const data = await res.json()
-        alert("Usuário criado com sucesso")
-        window.location.href = "./login.html"
-        return data
-    }
-    catch (error) {
-        console.log(error)
-        throw new Error("não foi possível cadastrar o usuário")
-    }
+        if(res.ok){
+            showToast("success")
+            setTimeout(()=>{
+                window.location.href = "./login.html"
+            },2100)
+            return data
+        }else{
+            showToast("error")
+            throw new Error("Não foi possível cadastrar o usuário")
+        }
 
 
 }
