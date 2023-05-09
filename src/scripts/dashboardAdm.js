@@ -6,7 +6,7 @@ function checkAuth() {
   const isAdm = localStorage.getItem("isAdm")
   if (!isAdm || isAdm !== 'true') {
     setTimeout(() => {
-      location.replace('/login.html');
+      location.replace('./login.html');
     }, 0)
   } else {
     document.body.style.display = "block"
