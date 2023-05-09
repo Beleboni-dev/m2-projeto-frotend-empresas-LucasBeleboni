@@ -41,12 +41,13 @@ async function authLogin(email, password) {
         body: JSON.stringify(body)
     })
     const data = await res.json()
-    showToast("success")
     if (res.ok) {
+        showToast("success")
         setTimeout(() => {
             saveCredencial(data)
+        }, 800)
             return data
-        }, 1000)
+            
     } else {
         showToast("error")
         throw new Error("Usuário ou senha invalido(s)")
