@@ -35,19 +35,6 @@ async function departmentsReadById(departmentID) {
 }
 
 
-function checkAuth() {
-    const isAdm = localStorage.getItem("isAdm")
-    const isAuth = localStorage.getItem("auth")
-
-    if (!isAuth || isAdm !== 'true') {
-        setTimeout(() => {
-            location.replace('/');
-
-        }, 0)
-    } else {
-        document.body.style.display = "block"
-    }
-}
 function handleLogout() {
     window.location.href = "../../index.html"
     localStorage.clear()
@@ -80,13 +67,13 @@ async function employeesListRender() {
     }
     const departmentData = await departmentsReadById(employeeData.department_id)
     const sectionTile = document.getElementById("company-department")
-
-
     sectionTile.textContent = `${departmentData.company.name} - ${departmentData.name}`
 
 
     const employeesList = document.getElementById('employees-list');
     if (departmentData.employees.length > 0) {
+        const companyInfo = document.getElementById("company-info")
+        companyInfo.classList.remove("hide")
         const emptyDisplay = document.getElementById("empty-display")
         emptyDisplay.classList.add("hide")
         const listContainer = document.getElementById("list-container")

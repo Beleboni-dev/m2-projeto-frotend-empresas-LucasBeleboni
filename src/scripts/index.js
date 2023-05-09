@@ -18,6 +18,26 @@ const endpoints = {
     departmentsDelete: 'http://localhost:3333/departments/delete/',
     employeesProfile: 'http://localhost:3333/employees/profile'
 }
+checkLoginStatus()
+function checkLoginStatus() {
+    const isAuth = localStorage.getItem("auth")
+    const isAdm = localStorage.getItem("isAdm")
+    if (isAdm) {
+        setTimeout(() => {
+            location.replace('./src/pages/adm-dashboard.html');
+        }, 0)
+    }
+    if (isAuth && isAdm === 'false') {
+        setTimeout(() => {
+            location.replace("./src/pages/emp-dash.html")
+        }, 0)
+    }
+    if (!isAuth) {
+        document.body.style.display = "block"
+    }
+}
+
+
 categoryOptions()
 initLogin()
 toRegister()

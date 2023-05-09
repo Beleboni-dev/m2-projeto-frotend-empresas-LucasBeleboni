@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400&display=swap');
-
+body{
+    display: none;
+}
 .main__container {
     display: flex;
     justify-content: space-between;

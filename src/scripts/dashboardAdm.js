@@ -4,11 +4,17 @@ checkAuth()
 
 function checkAuth() {
   const isAdm = localStorage.getItem("isAdm")
-  if (!isAdm || isAdm !== 'true') {
+  const isAuth = localStorage.getItem("auth")
+  if (isAuth && isAdm === 'false') {
     setTimeout(() => {
-      location.replace('./login.html');
+        location.replace("./emp-dash.html")
     }, 0)
-  } else {
+  }
+  if(!isAuth){
+    setTimeout(() => {
+      location.replace("./login.html")
+  }, 0)
+  }else {
     document.body.style.display = "block"
   }
 }
