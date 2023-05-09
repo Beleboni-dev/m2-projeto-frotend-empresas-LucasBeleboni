@@ -643,7 +643,7 @@ async function createReadDepartmentModal(companyName, departmentId, departmentNa
     contentContainer.appendChild(description)
 
     const thisCompany = document.createElement("h4")
-    thisCompany.className = "read-department__description font-poppins-700-20"
+    thisCompany.className = "read-department__description text-4-inter"
     thisCompany.textContent = companyName
     contentContainer.appendChild(thisCompany)
 
