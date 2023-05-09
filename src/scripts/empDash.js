@@ -9,7 +9,7 @@ employeesListRender()
     const isAuth = localStorage.getItem("auth")
     const isAdm = localStorage.getItem("isAdm")
     
-    if (isAdm) {
+    if (isAdm === 'true') {
       setTimeout(() => {
         location.replace('./adm-dashboard.html');
       }, 0)
