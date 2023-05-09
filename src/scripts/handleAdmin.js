@@ -252,7 +252,6 @@ async function dismissAllEmployees(employees) {
         })
     }
 }
-
 async function modalDismissEmployee(employeeID, departmentID, companyName) {
 
     const res = await fetch(`${endpoints.modalDismissEmployee}${employeeID}`, {
@@ -642,6 +641,11 @@ async function createReadDepartmentModal(companyName, departmentId, departmentNa
     description.className = "read-department__description font-poppins-700-20"
     description.textContent = departmentDescription
     contentContainer.appendChild(description)
+
+    const thisCompany = document.createElement("h4")
+    thisCompany.className = "read-department__description font-poppins-700-20"
+    thisCompany.textContent = companyName
+    contentContainer.appendChild(thisCompany)
 
     const selectContainer = document.createElement("div")
     selectContainer.className = "select-employee-container"
