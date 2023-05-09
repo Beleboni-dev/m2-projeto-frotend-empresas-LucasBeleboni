@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400&display=swap');
+
+.main__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main__container-right,
+.main__container-left {
+    margin-top: .625rem;
+    width: 47.5%;
+    max-width: 550px;
+    height: 100vh;
+    max-height: 53rem;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.main__container-left img {
+    width: 100%;
+    height: 100%;
+}
+
+.main__container-right {
+    box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.22);
+
+}
+
+.container-right__body {
+    padding: 1.6875rem 2.0625rem;
+    overflow-y: auto;
+}
+
+.companies-list {
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.companies-list__item {
+    margin-top: 1.375rem;
+    border: 1px solid var(--brand1);
+    padding: 1.3125rem 1.5625rem;
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+}
+
+.companies-category-chip {
+    width: max-content;
+    text-align: center;
+    border-radius: 255px;
+    padding: 0.5rem 1rem;
+}

@@ -1,0 +1,72 @@
+body {
+    color: var(--grey1);
+}
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.user-box__container {
+    height: 137px;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: var(--mode);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.employees-department__title-container {
+    background-color: var(--brand1);
+    color: var(--mode);
+    margin-top: 2.5rem;
+
+}
+
+.company-department__title {
+    color: var(--mode);
+    text-align: center;
+    padding: 1.25rem;
+}
+
+.employees_list {
+    margin-top: 2.5rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+}
+
+.employees__item {
+    border: 1px solid gray;
+    box-sizing: border-box;
+    font-size: 16px;
+    width: max-content;
+    min-width: 32%;
+    height: 5.9375rem;
+    padding-right: 1rem;
+}
+
+.employee-name {
+    margin-left: 1rem;
+}
+
+.empty-display {
+    border: 1px solid rgba(248, 248, 248, 1);
+    background-color: var(--grey5);
+    height: 467px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}

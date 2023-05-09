@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="../styles/select.css">
+    <link rel="stylesheet" href="../styles/adm-dash.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/adm-dash-modals.css">
+    <script type="module" src="../scripts/dashboardAdm.js" defer></script>
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <div class="header__container">
+            <div class="header__logo-container">
+                <div class="header__logo-circle"></div>
+                <span class="header__logo-kenzie title2-bold">Kenzie Empresas</span>
+            </div>
+            <div class="header__button-container">
+                <button class="button button-default-outlined" id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main__container">
+            <div class="select-container">
+                <select id="select-companies">
+                    <option value="initial" selected disabled>Selecionar Empresa</option>
+                </select>
+                <span class="select-arrow"></span>
+            </div>
+            <section class="departments-section">
+                <div class="departments__header">
+                    <h2 class="departments__header-title title1-inter-700">Departamentos</h2>
+                    <button class="departments__header-create button button-default">+ Criar</button>
+                </div>
+
+                <div class="empty-display" id="empty-display">
+                    <h2 class="text3-medium" id="empty-text">Selecione uma empresa</h2>
+                </div>
+                <div class="departments__container hide" id="departments-container">
+                    <ul class="departments__list" id="departments-list">
+                        <!--render by js-->
+                    </ul>
+                </div>
+            </section>
+
+            <section class="employees-section">
+                <div class="employees__header">
+                    <h2 class="employees__header-title title1-inter-700">Usuários cadastrados</h2>
+                </div>
+                <div class="empty-display-employees " id="empty-display-employees" style="display: none;">
+                    <h2 class="text3-medium" id="empty-text">Nenhum usuário cadastrado</h2>
+                </div>
+                <div class="employees__container" id="employees-container">
+                    <ul class="employees__list" id="employees-list">
+
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

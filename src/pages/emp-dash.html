@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="../styles/emp-dash.css">
+    <script src="../scripts/empDash.js" defer></script>
+    <title>Area do funcionário</title>
+</head>
+
+<body>
+    <header>
+        <div class="header__container">
+            <div class="header__logo-container">
+                <div class="header__logo-circle"></div>
+                <span class="header__logo-kenzie title2-bold">Kenzie Empresas</span>
+            </div>
+            <div class="header__button-container">
+                <button class="button button-default-outlined" id="logout-btn">Logout</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main__container">
+            <div class="user-box__container">
+                <h2 class="user-box__user-name title1-inter-700" id="user-box-username"></h2>
+                <span class="user-box__user-email text-4-inter" id="user-box-email"></span>
+            </div>
+            <div class="employees-department__title-container">
+                <h2 class="company-department__title title1-inter-700" id="company-department">NomeCompanhia -
+                    NomeDepartamento</h2>
+            </div>
+            <div class="empty-display" id="empty-display">
+                <h2 class="empty-text title1">Você ainda não foi contratado</h2>
+            </div>
+            <div class="employees-department__content-container hide" id="list-container">
+                <ul class="employees_list" id="employees-list">
+
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

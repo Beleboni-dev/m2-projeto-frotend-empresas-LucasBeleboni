@@ -1,0 +1,232 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--grey1);
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --action1: #36B37E;
+    --action2: #FF5630;
+    --action3: #FFAB00;
+    --brand1: #0000FF;
+    --brand2: #3532FF;
+    --grey1: #212529;
+    --grey2: #495057;
+    --grey3: #ADB5BD;
+    --grey4: #E9ECEF;
+    --grey5: #F1F3F5;
+    --mode: #FFFFFF;
+}
+
+
+.title1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.title2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.title1-bold {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.title2-bold {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.title2-medium {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.title1-inter-700 {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.title2-inter-700 {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.text1-regular {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.text1-bold {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.text1-medium {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+
+.text3-medium {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    color: var(--grey1);
+}
+
+.text2-regular {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.button {
+    width: 8.875rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--mode);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button-default {
+    background-color: var(--brand1);
+}
+
+.button-default:hover {
+    background-color: var(--brand2);
+}
+
+.button-default-outlined {
+    background-color: var(--mode);
+    border: 1px solid var(--brand1);
+    color: var(--brand1);
+}
+
+.button-action-1 {
+    background-color: var(--action1);
+    width: 100%;
+}
+
+.button-action-2-outlined {
+    border: 1px solid var(--action2);
+    color: var(--action2);
+    background-color: transparent;
+}
+
+.button-action-2 {
+    color: var(--mode);
+    background-color: var(--action2);
+}
+
+.font-poppins-700 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.font-poppins-700-20 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 60px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.font-poppins-400 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.text-4-inter {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: var(--grey1)
+}
+
+.hide {
+    display: none;
+}

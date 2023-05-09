@@ -1,0 +1,27 @@
+header {
+    border-bottom: 1px solid #00000010;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.header__container {
+    height: 5rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.header__logo-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.header__logo-circle {
+    border-radius: 50%;
+    background-color: var(--brand1);
+    width: 1rem;
+    height: 1rem;
+}

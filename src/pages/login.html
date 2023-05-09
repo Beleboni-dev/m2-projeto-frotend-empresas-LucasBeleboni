@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/globalStyles.css">
+  <link rel="stylesheet" href="../styles/login-register.css">
+  <link rel="stylesheet" href="../styles/header.css">
+
+  <script type="module" src="../scripts/login.js" defer></script>
+  <title>Login</title>
+</head>
+
+<body>
+  <header>
+    <div class="header__container">
+      <div class="header__logo-container">
+        <div class="header__logo-circle"></div>
+        <span class="header__logo-kenzie title2-bold">Kenzie Empresas</span>
+      </div>
+      <div class="header__buttons-container">
+        <button class="button button-default-outlined" id="to-home-btn">Home</button>
+        <button class="button button-default to-register" id="btn-to-register">Cadastro</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="modal-login" class="modal">
+    <h2 class="modal-title font-poppins-700">Login</h2>
+    <span class="text1-regular">Preencha os campos para realizar login</span>
+    <form class="modal-form">
+      <label class="modal-label" for="input-email">e-mail</label>
+      <input class="modal-input" type="email" name="email" id="input-email" placeholder="Seu e-mail" required>
+      <label class="modal-label" for="input-password">senha</label>
+      <input class="modal-input" type="password" name="password" id="input-password" placeholder="Sua senha">
+      <button class="button button-default modal-btn--primary" id="modal-login-btn">Login</button>
+      <span class="text1-regular">ou</span>
+      <button class="button button-default-outlined modal-btn--secondary to-register"
+        id="modal-register-btn">Cadastre-se</button>
+    </form>
+  </main>
+
+  <!-- Seu conteúdo aqui -->
+
+</body>
+
+</html>

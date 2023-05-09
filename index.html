@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/styles/globalStyles.css">
+    <link rel="stylesheet" href="./src/styles/scrollbar.css">
+    <link rel="stylesheet" href="./src/styles/select.css">
+    <link rel="stylesheet" href="./src/styles/home.css">
+    <link rel="stylesheet" href="./src/styles/header.css">
+    <script src="./src/scripts/index.js" defer></script>
+    <title>Kenzie empresas</title>
+</head>
+
+<body>
+    <header>
+        <div class="header__container">
+            <div class="header__logo-container">
+                <div class="header__logo-circle"></div>
+                <span class="header__logo-kenzie title2-bold">Kenzie Empresas</span>
+            </div>
+            <div class="header__buttons-container">
+                <button class="button button-default-outlined" id="open-modal-login">Login</button>
+                <button class="button button-default" id="to-register">Cadastro</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main__container">
+            <div class="main__container-left">
+                <img src="./src/assets/images/background-homepage.png" alt="business-image">
+            </div>
+            <div class="main__container-right">
+
+                <div class="select-container">
+                    <select id="select-categories">
+                        <option value="value1" selected disabled>Selecione um setor</option>
+                        <!--render by categoryOptions in render.js-->
+                    </select>
+                    <span class="select-arrow"></span>
+                </div>
+                <div class="container-right__body">
+                    <h2 class="title1">Lista de empresas</h2>
+                    <ul class="companies-list">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+::-webkit-scrollbar {
+    width: .8rem;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: .1rem;
+    background-color: var(--mode);
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--brand1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--brand2);
+}
+
+::-moz-scrollbar {
+    width: .8rem;
+
+}
+
+::-moz-scrollbar-track {
+
+    background-color: var(--mode);
+}
+
+::-moz-scrollbar-thumb {
+    background-color: var(--brand1);
+    border-radius: .5rem;
+}
+
+::-moz-scrollbar-thumb:hover {
+    background-color: var(--brand2);
+}

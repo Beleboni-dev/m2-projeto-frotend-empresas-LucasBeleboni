@@ -1,0 +1,182 @@
+.modal-dash {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.new-department__close-btn,
+.edit-department__close-btn,
+.read-department__close-btn,
+.delete-department__close-btn,
+.delete-employee__close-btn {
+  background-image: url("../assets/icons/close-icon.svg");
+  background-size: contain;
+  width: 1.125rem;
+  height: 1.125rem;
+  position: absolute;
+  top: 1.3125rem;
+  right: 1.4375rem;
+  cursor: pointer;
+}
+
+.new-department__content-container,
+.edit-department__content-container,
+.edit-employee__content-container,
+.delete-employee__content-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  width: 31.625rem;
+}
+
+.read-department__content-container {
+  width: 857px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+}
+
+.delete-department__content-container,
+.delete-employee__content-container {
+  padding: 4.375rem 4.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-department__content-container button,
+.delete-employee__content-container button {
+  width: 100%;
+  margin-top: 2.375rem;
+}
+
+.new-department__title,
+.edit-department__title,
+.read-department__title,
+.edit-employee__title {
+  font-size: 2.25rem;
+  width: max-content;
+}
+
+.delete-department__title,
+.delete-employee__title {
+  font-size: 1.75rem;
+  text-align: center;
+  line-height: 42px;
+  max-width: 598px;
+}
+
+.new-department__form,
+.edit-department__form,
+.edit-employee__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.25rem;
+  gap: .8125rem;
+}
+
+.modal-label {
+  position: absolute;
+  clip-path: inset(100%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+#department-name-input,
+#department-description-input,
+#edit-employee-name-inputName,
+#edit-employee-email,
+textarea {
+  width: 100%;
+  height: 52px;
+  background-color: var(--mode);
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+textarea {
+  height: 7.0625rem;
+  resize: none;
+  margin-bottom: .875rem;
+}
+
+.select-employee-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.125rem;
+}
+
+.select-employee-container button {
+  width: 11.875rem;
+  max-width: 20%;
+  height: 52px;
+}
+
+#company-to-department,
+#select-employee {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center right;
+  height: 52px;
+  background-color: var(--mode);
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+#select-employee {
+  width: 78%;
+
+}
+
+.initial-select {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.department-employees-list {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  background-color: rgba(248, 248, 248, 1);
+  padding: 2.6875rem 2.0625rem 2.5625rem 2.5625rem;
+  margin-top: 1rem;
+  list-style: none;
+  gap: 1.75rem;
+}
+
+.department-employee-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 16rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1.125rem 1.375rem;
+  border-bottom: 1px solid var(--brand1);
+}
+
+.department-employee-item h2 {
+  margin-bottom: .6875rem;
+}
+
+.department-employee-item button {
+  margin-top: 3.25rem;
+  width: 100%;
+}

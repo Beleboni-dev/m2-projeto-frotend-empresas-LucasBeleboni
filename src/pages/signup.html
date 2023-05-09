@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/globalStyles.css">
+  <link rel="stylesheet" href="../styles/login-register.css">
+  <link rel="stylesheet" href="../styles/header.css">
+
+  <script type="module" src="../scripts/register.js" defer></script>
+  <title>Registre-se</title>
+</head>
+
+<body>
+  <header>
+    <div class="header__container">
+      <div class="header__logo-container">
+        <div class="header__logo-circle"></div>
+        <span class="header__logo-kenzie title2-bold">Kenzie Empresas</span>
+      </div>
+      <div class="header__buttons-container">
+        <button class="button button-default-outlined to-home__btn" id="to-home-btn">Home</button>
+        <button class="button button-default" id="to-login">Login</button>
+      </div>
+    </div>
+  </header>
+  <main id="modal-register" class="modal">
+    <h2 class="modal-title font-poppins-700">Cadastre-se</h2>
+    <form class="modal-form">
+      <label for="name" class="modal-label">Nome</label>
+      <input type="text" name="name" id="input-name" class="modal-input" placeholder="Seu nome" required>
+      <label for="email" class="modal-label">E-mail</label>
+      <input type="email" name="email" id="input-email" class="modal-input" placeholder="Seu e-mail" required>
+      <label for="password" class="modal-label">Senha</label>
+      <input type="password" name="password" id="input-password" class="modal-input" placeholder="Sua senha">
+      <button id="modal-register-btn" class="button button-default modal-btn--primary">Cadastrar</button>
+      <button id="modal-return-btn"
+        class="to-home__btn button button-default-outlined modal-btn--secondary">Retornar</button>
+    </form>
+  </main>
+
+</body>
+
+</html>

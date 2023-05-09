@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+body {
+    display: none;
+}
+
+.header__button-container button {
+    font-family: 'Roboto', sans-serif;
+}
+
+.select-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#select-companies {
+    width: 288px;
+}
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.departments__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5625rem;
+}
+
+.departments__container {
+    margin-top: 1.5625rem;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.25);
+    padding: 3rem 3.5rem;
+}
+
+.departments__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2.6875rem;
+    list-style: none;
+}
+
+.departments__item {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    max-width: 30.5625rem;
+    padding: 1.125rem 1.8125rem;
+    border: 1px solid var(--brand1)
+}
+
+.department__info-container {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+}
+
+.department_icons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4219rem;
+}
+
+.department-read-icon {
+    background-image: url("../assets/icons/read.svg");
+    width: 2rem;
+    height: 1.3125rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.department-edit-icon {
+    background-image: url("../assets/icons/edit.svg");
+    width: 1.75rem;
+    height: 1.75rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.department-delete-icon {
+    background-image: url("../assets/icons/delete.svg");
+    width: 1.4169rem;
+    height: 1.6062rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.15);
+    transition: 0.2s;
+}
+
+/*employees section*/
+
+.employees__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3.3125rem;
+}
+
+.employees__container {
+    margin-top: 1.5625rem;
+    margin-bottom: 3rem;
+    background-color: rgba(248, 248, 248, 1);
+    ;
+    padding: 3rem 3.5rem;
+}
+
+.employees__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2.6875rem;
+    list-style: none;
+}
+
+.employees__item {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    max-width: 30.5625rem;
+    padding: 1.125rem 1.8125rem;
+    border: 1px solid var(--brand1)
+}
+
+.employee__info-container {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+}
+
+.employee_icons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4219rem;
+}
+
+.employee-edit-icon {
+    background-image: url("../assets/icons/edit.svg");
+    width: 1.75rem;
+    height: 1.75rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.employee-delete-icon {
+    background-image: url("../assets/icons/delete.svg");
+    width: 1.4169rem;
+    height: 1.6062rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.empty-display,
+.empty-display-employees {
+    margin-top: 2rem;
+    height: 24.0625rem;
+    background-color: rgba(248, 248, 248, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
