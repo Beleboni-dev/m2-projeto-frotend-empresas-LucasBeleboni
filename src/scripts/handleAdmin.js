@@ -180,7 +180,6 @@ async function employeesUpdateEmployee(employeeID, newValues) {
         throw new Error("Não foi possível atualizar dados do funcionário")
     }
     const data = await res.json()
-    alert(`atualizo dados do usuário ${newValues.name}`)
     const modal = document.getElementById("edit-employee-modal")
     modal.close()
     modal.remove()
@@ -200,7 +199,7 @@ async function employeesDeleteEmployee(employeeID) {
     modal.close()
     modal.remove()
     renderEmployeeSection()
-    alert("usuário deletado")
+    showToast("success-DU")
     return data
 }
 async function departmentsReadAll() {
