@@ -114,7 +114,6 @@ async function departmentsDelete(employees, departmentID, companyID, companyName
         showToast("success-D")
         const data = await res.json()
         await dismissAllEmployees(employees)
-        alert("Departamento deletado com sucesso")
         const modal = document.getElementById("delete-department-modal")
         const ulDepartments = document.getElementById("departments-list")
         ulDepartments.innerHTML = ""
@@ -245,11 +244,11 @@ async function dismissAllEmployees(employees) {
                     "Content-Type": "application/json"
                 }
             })
+            const data = await res.json()
+            console.log(data)
             if (!res.ok) {
                 throw new Error("Não foi possível demitir esse funcionário")
             }
-            const data = await res.json()
-            alert(`${employee.name} demitido(a) do departamento`)
         })
     }
 }
@@ -267,7 +266,6 @@ async function modalDismissEmployee(employeeID, departmentID, companyName) {
         throw new Error("Não foi possível demitir esse funcionário")
     }
     const data = await res.json()
-    alert("Funcionário demitido")
     const select = document.getElementById("select-employee")
 
     if (select !== null) {

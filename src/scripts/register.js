@@ -33,7 +33,7 @@ async function insertNewEmployee() {
 
     // Verifica se algum campo está vazio
     if (!nameInput || !emailInput || !passwordInput) {
-        alert('Por favor, preencha todos os campos')
+        showToast("error-RE")
         return
     }
 
