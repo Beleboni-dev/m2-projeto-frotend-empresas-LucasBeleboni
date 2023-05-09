@@ -2,7 +2,27 @@ const endpoints = {
     departmentsReadById: 'http://localhost:3333/departments/readById/',
     employeesProfile: 'http://localhost:3333/employees/profile'
 }
+checkAuthStatus()
 employeesListRender()
+
+ function checkAuthStatus () {  
+    const isAuth = localStorage.getItem("auth")
+    const isAdm = localStorage.getItem("isAdm")
+    
+    if (isAdm) {
+      setTimeout(() => {
+        location.replace('./adm-dashboard.html');
+      }, 0)
+    } else if(!isAuth){
+        setTimeout(() => {
+            location.replace('./login.html');
+        }, 0)
+    }else if(isAuth && isAdm === 'false'){
+        setTimeout(() => {
+            document.body.style.display = "block"
+        }, 0)
+    }
+}
 
 const logoutButton = document.getElementById("logout-btn")
 if (logoutButton !== null) {

@@ -1,11 +1,12 @@
 import { createNewDepartmentModal, renderDepartments, getAllCompanies, renderEmployeeSection, handleLogout } from "./handleAdmin.js"
 checkAuth()
+
+
 function checkAuth() {
   const isAdm = localStorage.getItem("isAdm")
   if (!isAdm || isAdm !== 'true') {
     setTimeout(() => {
-      location.replace('/');
-
+      location.replace('/login.html');
     }, 0)
   } else {
     document.body.style.display = "block"

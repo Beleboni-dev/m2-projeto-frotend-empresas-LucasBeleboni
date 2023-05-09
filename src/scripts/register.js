@@ -25,7 +25,6 @@ async function initRegister() {
         await insertNewEmployee()
     })
 }
-
 async function insertNewEmployee() {
     const nameInput = document.getElementById('input-name').value
     const emailInput = document.getElementById('input-email').value
@@ -39,7 +38,6 @@ async function insertNewEmployee() {
 
     await employeesCreate(nameInput, emailInput, passwordInput)
 }
-
 async function employeesCreate(name, email, password) {
     const body = {
         name,
